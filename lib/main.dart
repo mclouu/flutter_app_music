@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'musique.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -26,6 +28,20 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  List<Musique> maListeDeMusiques = [
+    new Musique('Au DD', 'PNL', 'assets/pnl.jpg', 'urlSong'),
+    new Musique('Kuta ubud', 'PNL', 'assets/pnl.jpg', 'urlSong'),
+    new Musique('Au DD', 'F430', 'assets/f430.jpg', 'urlSong'),
+    new Musique('Au DD', 'F430', 'assets/f430.jpg', 'urlSong')
+  ];
+
+  Musique musiqueActuelle;
+
+  @override
+  void initState() {
+    super.initState();
+    musiqueActuelle = maListeDeMusiques[0];
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,11 +51,11 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Colors.orange[900],
         title: Text(widget.title),
       ),
+      backgroundColor: Colors.grey[900],
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-          ],
+          children: <Widget>[],
         ),
       ),
     );
