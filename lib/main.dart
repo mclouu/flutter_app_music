@@ -31,8 +31,8 @@ class _MyHomePageState extends State<MyHomePage> {
   List<Musique> maListeDeMusiques = [
     new Musique('Au DD', 'PNL', 'assets/pnl.jpg', 'urlSong'),
     new Musique('Kuta ubud', 'PNL', 'assets/pnl.jpg', 'urlSong'),
-    new Musique('Au DD', 'F430', 'assets/f430.jpg', 'urlSong'),
-    new Musique('Au DD', 'F430', 'assets/f430.jpg', 'urlSong')
+    new Musique('Euros dollars pesos', 'F430', 'assets/f430.jpg', 'urlSong'),
+    new Musique('Slow Down', 'F430', 'assets/f430.jpg', 'urlSong')
   ];
 
   Musique musiqueActuelle;
@@ -40,7 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     super.initState();
-    musiqueActuelle = maListeDeMusiques[0];
+    musiqueActuelle = maListeDeMusiques[1];
   }
 
   @override
@@ -55,9 +55,39 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[],
+          children: <Widget>[
+            new Card(
+              elevation: 9.0,
+              child: new Container(
+                width: MediaQuery.of(context).size.height / 2.5,
+                child: new Image.asset(musiqueActuelle.imagePath),
+              ),
+            ),
+            texteMagique(musiqueActuelle.titre, 1.5),
+            texteMagique(musiqueActuelle.artiste, 1.0),
+            new Row(
+
+            )
+            new Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                texteMagique('0:0', 0.8),
+                texteMagique('0:22', 0.8)
+              ],
+            )
+          ],
         ),
       ),
+    );
+  }
+
+  Text texteMagique(String data, double scale) {
+    return new Text(
+      data,
+      textScaleFactor: scale,
+      textAlign: TextAlign.center,
+      style: new TextStyle(
+          color: Colors.white, fontSize: 20, fontStyle: FontStyle.italic),
     );
   }
 }
